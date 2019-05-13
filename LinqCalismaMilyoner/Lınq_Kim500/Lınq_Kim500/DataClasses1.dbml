@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Yarisma_DB" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=MTSOYDAN\SQLEXPRESS;Initial Catalog=Yarisma_DB;Integrated Security=True" SettingsObjectName="Lınq_Kim500.Properties.Settings" SettingsPropertyName="Yarisma_DBConnectionString1" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.SoruDogruSık" Member="SoruDogruSıks">
+    <Type Name="SoruDogruSık">
+      <Column Name="SoruID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DogruSık" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SoruSıkları" Member="SoruSıklarıs">
+    <Type Name="SoruSıkları">
+      <Column Name="SoruID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="A" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="B" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="C" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="D" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Sorular" Member="Sorulars">
+    <Type Name="Sorular">
+      <Column Name="SoruID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SoruMetni" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.view_Ayrintilar" Member="view_Ayrintilars">
+    <Type Name="view_Ayrintilar">
+      <Column Name="SoruID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DogruSık" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="A" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="B" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="C" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="SoruMetni" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="D" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Function Name="dbo.RasgeleSoru" Method="RasgeleSoru">
+    <ElementType Name="RasgeleSoruResult">
+      <Column Name="SoruID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DogruSık" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="A" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="B" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="C" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="SoruMetni" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="D" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SoruSil" Method="SoruSil">
+    <Parameter Name="id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.SoruEkle" Method="SoruEkle">
+    <Parameter Name="SoruMetni" Parameter="soruMetni" Type="System.String" DbType="NVarChar(250)" />
+    <Parameter Name="A" Parameter="a" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="B" Parameter="b" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="C" Parameter="c" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="D" Parameter="d" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="SoruDogruCevap" Parameter="soruDogruCevap" Type="System.Char" DbType="Char(1)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.SoruGuncelle" Method="SoruGuncelle">
+    <Parameter Name="SoruID" Parameter="soruID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="SoruMetni" Parameter="soruMetni" Type="System.String" DbType="NVarChar(250)" />
+    <Parameter Name="DogruSık" Parameter="dogruSık" Type="System.Char" DbType="Char(1)" />
+    <Parameter Name="SıkA" Parameter="sıkA" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="SıkB" Parameter="sıkB" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="SıkC" Parameter="sıkC" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="SıkD" Parameter="sıkD" Type="System.String" DbType="NVarChar(100)" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>
